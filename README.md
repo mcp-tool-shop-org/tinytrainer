@@ -1,4 +1,12 @@
-# tinytrainer
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mcp-tool-shop-org/brand/main/logos/tinytrainer/readme.png" width="400" alt="TinyTrainer" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/mcp-tool-shop-org/tinytrainer/actions"><img src="https://github.com/mcp-tool-shop-org/tinytrainer/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" /></a>
+  <a href="https://mcp-tool-shop-org.github.io/tinytrainer/"><img src="https://img.shields.io/badge/docs-landing%20page-blue" alt="Landing Page" /></a>
+</p>
 
 Desktop training foundry + mobile personalization export pipeline.
 
