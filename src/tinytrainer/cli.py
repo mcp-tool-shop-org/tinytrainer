@@ -32,8 +32,13 @@ def main(
     version: bool | None = typer.Option(
         None, "--version", "-v", callback=_version_callback, is_eager=True,
     ),
+    debug: bool = typer.Option(False, "--debug", help="Show full stack traces on error"),
 ) -> None:
     """tinytrainer — desktop training + mobile export."""
+    if debug:
+        import tinytrainer.errors as err
+
+        err.DEBUG_MODE = True
 
 
 @app.command()

@@ -61,6 +61,12 @@ A `.kit.zip` bundle contains everything needed for deployment:
 
 TinyTrainer reads [edgepacks](https://github.com/mcp-tool-shop-org/edgepacks) task packs directly. Any edgepacks classification pack works as training data.
 
+## Security
+
+TinyTrainer runs locally. It touches training data (text + labels), model files, and configuration JSON — all written to the user-specified `--output` directory. The backbone model is downloaded from Hugging Face Hub on first use. No other network egress. No telemetry. No secrets handling. See [SECURITY.md](SECURITY.md) for the full policy.
+
 ## License
 
 MIT
+
+Built by [MCP Tool Shop](https://mcp-tool-shop.github.io/)

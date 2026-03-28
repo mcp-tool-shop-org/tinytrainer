@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tinytrainer"
-version = "0.1.0"
+version = "1.0.0"
 description = "Desktop training foundry + mobile personalization export pipeline"
 readme = "README.md"
 license = "MIT"
