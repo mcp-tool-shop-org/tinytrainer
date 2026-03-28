@@ -1,5 +1,8 @@
 """Tests for ONNX export."""
 
+import numpy as np
+import onnx
+import onnxruntime as ort
 
 from tinytrainer.export.onnx import export_to_onnx
 from tinytrainer.models.classifier import ClassifierHead
@@ -14,17 +17,12 @@ class TestOnnxExport:
         assert path.stat().st_size > 0
 
     def test_export_valid_onnx(self, tmp_path):
-        import onnx
-
         head = ClassifierHead(input_dim=16, num_labels=3, head_type=HeadType.LINEAR)
         path = export_to_onnx(head, 16, tmp_path / "model.onnx")
         model = onnx.load(str(path))
         onnx.checker.check_model(model)
 
     def test_export_correct_io(self, tmp_path):
-        import numpy as np
-        import onnxruntime as ort
-
         head = ClassifierHead(input_dim=16, num_labels=4, head_type=HeadType.MLP, mlp_hidden=32)
         path = export_to_onnx(head, 16, tmp_path / "model.onnx")
 

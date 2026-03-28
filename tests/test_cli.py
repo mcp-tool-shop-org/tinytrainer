@@ -3,6 +3,9 @@
 from typer.testing import CliRunner
 
 from tinytrainer.cli import app
+from tinytrainer.export.kit import package_kit
+from tinytrainer.schema import config as cfg
+from tinytrainer.schema.kit import TokenizerRef
 
 runner = CliRunner()
 
@@ -20,9 +23,6 @@ class TestCLI:
         assert "linear" in result.output
 
     def test_info(self, trained_model_dir, tmp_path):
-        from tinytrainer.export.kit import package_kit
-        from tinytrainer.schema.kit import TokenizerRef
-
         tok_ref = TokenizerRef(model_name="mock", embedding_dim=16, max_seq_length=128)
         kit_path = tmp_path / "test.kit.zip"
         package_kit(trained_model_dir, kit_path, tok_ref)
@@ -36,9 +36,6 @@ class TestCLI:
         assert result.exit_code == 1
 
     def test_export_onnx(self, trained_model_dir, tmp_path):
-        # Patch BACKBONE_DIMS so our 16-dim model works
-        from tinytrainer.schema import config as cfg
-
         original = cfg.BACKBONE_DIMS.copy()
         cfg.BACKBONE_DIMS["all-MiniLM-L6-v2"] = 16
 
